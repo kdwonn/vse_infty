@@ -201,7 +201,7 @@ def evalrank(model_path, data_path=None, split='dev', fold5=False, save_path=Non
     logger.info(opt)
 
     # load vocabulary used by the model
-    opt.vocab_path = '/tmp/data/vocab'
+    opt.vocab_path = './vocab'
 
     # load vocabulary used by the model
     if 'coco' in opt.data_name:
@@ -212,7 +212,7 @@ def evalrank(model_path, data_path=None, split='dev', fold5=False, save_path=Non
     vocab.add_word('<mask>')
     opt.vocab_size = len(vocab)
 
-    opt.backbone_path = '/tmp/data/weights/original_updown_backbone.pth'
+    opt.backbone_path = './weights/original_updown_backbone.pth'
     if data_path is not None:
         opt.data_path = data_path
 
