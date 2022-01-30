@@ -31,7 +31,7 @@ def main():
     #     ]
     # else:
     #     raise ValueError('Invalid dataset argument {}'.format(opt.dataset))
-    weights_bases = opt.model_path
+    weights_bases = [opt.model_path]
 
     for base in weights_bases:
         logger.info('Evaluating {}...'.format(base))
