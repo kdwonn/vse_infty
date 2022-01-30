@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--model_path')
     parser.add_argument('--save_results', action='store_true')
     parser.add_argument('--evaluate_cxc', action='store_true')
+    parser.add_argument('--precomp_enc_type')
     opt = parser.parse_args()
 
     # if opt.dataset == 'coco':
