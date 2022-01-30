@@ -12,23 +12,25 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset', default='coco',
                         help='coco or f30k')
-    parser.add_argument('--data_path', default='/tmp/data/coco')
+    parser.add_argument('--data_path', default='./data/coco')
+    parser.add_argument('--model_path')
     parser.add_argument('--save_results', action='store_true')
     parser.add_argument('--evaluate_cxc', action='store_true')
     opt = parser.parse_args()
 
-    if opt.dataset == 'coco':
-        weights_bases = [
-            'runs/release_weights/coco_butd_region_bigru',
-            'runs/release_weights/coco_butd_grid_bigru',
-        ]
-    elif opt.dataset == 'f30k':
-        weights_bases = [
-            'runs/release_weights/f30k_butd_region_bigru',
-            'runs/release_weights/f30k_butd_grid_bigru',
-        ]
-    else:
-        raise ValueError('Invalid dataset argument {}'.format(opt.dataset))
+    # if opt.dataset == 'coco':
+    #     weights_bases = [
+    #         'runs/release_weights/coco_butd_region_bigru',
+    #         'runs/release_weights/coco_butd_grid_bigru',
+    #     ]
+    # elif opt.dataset == 'f30k':
+    #     weights_bases = [
+    #         'runs/release_weights/f30k_butd_region_bigru',
+    #         'runs/release_weights/f30k_butd_grid_bigru',
+    #     ]
+    # else:
+    #     raise ValueError('Invalid dataset argument {}'.format(opt.dataset))
+    weights_bases = opt.model_path
 
     for base in weights_bases:
         logger.info('Evaluating {}...'.format(base))
